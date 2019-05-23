@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("ad")
+@RequestMapping("ads")
 public class AdController {
     
     private final AdService adService;
@@ -20,7 +20,7 @@ public class AdController {
         this.adService = adService;
     }
 
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     public AdDto get(@PathVariable("id") Long adId) {
         return adService.get(adId);
     }
