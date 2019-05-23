@@ -1,4 +1,4 @@
-package de.mobile;
+package de.mobile.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("customer")
-public class CustomerResource {
+public class CustomerController {
 }
