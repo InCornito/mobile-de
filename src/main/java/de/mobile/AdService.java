@@ -1,8 +1,7 @@
 package de.mobile;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.inject.Inject;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +12,7 @@ public class AdService {
 
     private final AdRepository adRepository;
 
-    @Inject
+    @Autowired
     public AdService(AdRepository adRepository) {
         this.adRepository = adRepository;
     }
