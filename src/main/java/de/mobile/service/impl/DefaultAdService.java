@@ -1,8 +1,9 @@
-package de.mobile.service;
+package de.mobile.service.impl;
 
 import de.mobile.model.dto.ad.AdDto;
 import de.mobile.model.dto.ad.MobileAdDto;
 import de.mobile.repository.AdRepository;
+import de.mobile.service.AdService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

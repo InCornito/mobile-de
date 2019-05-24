@@ -1,12 +1,26 @@
 server:
   port: 8080
+  context-path: /api/v1
 
 spring:
   application:
     name: backend-coding-challenge
+  profiles:
+    active: dev
   jackson:
     default-property-inclusion: NON_NULL
     serialization:
       fail-on-empty-beans: false
+      write-dates-as-timestamps: false
     deserialization:
       fail-on-unknown-properties: false
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/challenge
+
+---
+spring:
+  application:
+    name: backend-coding-challenge
+  profiles:
+    active: local

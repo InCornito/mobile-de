@@ -29,5 +29,4 @@ public class AdController {
     public List<AdDto> list() {
         return adService.list();
     }
-
 }

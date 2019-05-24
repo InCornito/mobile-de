@@ -10,7 +10,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"de.mobile"})
 @Configuration
-public class AppConfig {
+public class AppConfig { // TODO
 
     @Bean
     public LocaleProvider localeProvider() {
