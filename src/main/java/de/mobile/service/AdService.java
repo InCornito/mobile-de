@@ -1,14 +1,15 @@
 package de.mobile.service;
 
-import de.mobile.model.dto.ad.AdDto;
+import de.mobile.controller.dto.ad.AdDto;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface AdService {
 
-    Long create(AdDto adDtoData); // TODO
+    AdDto create(AdDto adDtoData);
 
-    AdDto get(Long adId);
+    AdDto get(String adId);
 
-    List<AdDto> list();
+    List<AdDto> list(Pageable pageable);
 }

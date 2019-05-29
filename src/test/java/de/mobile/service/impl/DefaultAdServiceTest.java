@@ -1,6 +1,6 @@
 package de.mobile.service.impl;
 
-import de.mobile.model.dto.ad.AdDto;
+import de.mobile.controller.dto.ad.AdDto;
 import de.mobile.repository.AdRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
@@ -31,10 +31,10 @@ public class DefaultAdServiceTest {
         @Test
         void shouldReturnEmptyListWhenNoData() {
             //given
-            Mockito.when(adRepository.list()).thenReturn(Collections.emptyList());
+            Mockito.when(adRepository.findAll()).thenReturn(Collections.emptyList());
 
             //when
-            List<AdDto> list = defaultAdService.list();
+            List<AdDto> list = defaultAdService.list(null);
 
             //then
             Assert.assertNotNull(list);
@@ -45,7 +45,7 @@ public class DefaultAdServiceTest {
     @Nested
     class AdGetTest {
         @Test
-        void shouldCreateWhenValidInput() {
+        void shouldGetItemWhenIdExists() {
 
         }
     }
