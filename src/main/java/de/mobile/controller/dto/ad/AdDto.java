@@ -29,9 +29,9 @@ public class AdDto {
     @JsonProperty(value = "adType")
     private AdDtoType adDtoType;
 
-    @NotBlank
+    @NotBlank(message = "{make.not.blank}")
     private String make;
-    @NotBlank
+    @NotBlank // message omit for test purpose
     private String model;
     private String description;
 

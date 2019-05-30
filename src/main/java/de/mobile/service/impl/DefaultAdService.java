@@ -2,6 +2,7 @@ package de.mobile.service.impl;
 
 import de.mobile.controller.dto.ad.AdDto;
 import de.mobile.domain.ad.Ad;
+import de.mobile.domain.ad.exception.AdNotFoundException;
 import de.mobile.mapper.AdMapper;
 import de.mobile.repository.AdRepository;
 import de.mobile.service.AdService;
@@ -30,6 +31,9 @@ public class DefaultAdService implements AdService {
     @Override
     public AdDto get(String adId) {
         Ad ad = adRepository.findOne(adId);
+        if (ad == null) {
+            throw new AdNotFoundException(String.format("Ad with id = '%s' not found", adId));
+        }
         return outbound(ad);
     }
 

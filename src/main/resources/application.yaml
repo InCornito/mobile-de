@@ -17,10 +17,14 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/challenge
-
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 logging:
   file: spring.log
-    max-size: 5MB
+
 ---
 spring:
   application:
