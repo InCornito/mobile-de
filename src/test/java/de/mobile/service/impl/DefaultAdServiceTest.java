@@ -11,12 +11,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 
-import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
+
 @ExtendWith(MockitoExtension.class)
-public class DefaultAdServiceTest {
+class DefaultAdServiceTest {
 
     @Mock
     private AdRepository adRepository;
@@ -31,10 +34,11 @@ public class DefaultAdServiceTest {
         @Test
         void shouldReturnEmptyListWhenNoData() {
             //given
-            Mockito.when(adRepository.findAll()).thenReturn(Collections.emptyList());
+            Mockito.when(adRepository.findAll(Mockito.any(PageRequest.class)))
+                    .thenReturn(new PageImpl<>(emptyList()));
 
             //when
-            List<AdDto> list = defaultAdService.list(null);
+            List<AdDto> list = defaultAdService.list(new PageRequest(0,10));
 
             //then
             Assert.assertNotNull(list);
