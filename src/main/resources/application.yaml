@@ -18,6 +18,9 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/challenge
 
+logging:
+  file: spring.log
+    max-size: 5MB
 ---
 spring:
   application:
