@@ -6,6 +6,7 @@ import de.mobile.domain.ad.exception.AdNotFoundException;
 import de.mobile.mapper.AdMapper;
 import de.mobile.repository.AdRepository;
 import de.mobile.service.AdService;
+import de.mobile.service.impl.security.SecurityUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class DefaultAdService implements AdService {
     @Override
     public AdDto create(AdDto adDtoData) {
         Ad ad = inbound(adDtoData);
+        ad.setCustomerEmail(SecurityUtils.getUserId());
         Ad saved = adRepository.save(ad);
         return outbound(saved);
     }

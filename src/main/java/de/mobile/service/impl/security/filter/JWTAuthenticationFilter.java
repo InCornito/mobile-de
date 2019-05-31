@@ -1,4 +1,4 @@
-package de.mobile.config.filter;
+package de.mobile.service.impl.security.filter;
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;

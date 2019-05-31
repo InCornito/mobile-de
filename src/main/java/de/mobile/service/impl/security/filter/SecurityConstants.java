@@ -1,4 +1,4 @@
-package de.mobile.config.filter;
+package de.mobile.service.impl.security.filter;
 
 interface SecurityConstants {
 

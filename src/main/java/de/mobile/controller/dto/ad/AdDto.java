@@ -25,6 +25,7 @@ import java.math.BigDecimal;
 @Validated
 public class AdDto {
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String id;
     @JsonProperty(value = "adType")
     private AdDtoType adDtoType;
@@ -41,6 +42,9 @@ public class AdDto {
 
     @DecimalMin(value = "0.0")
     private BigDecimal price;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private String customerEmail;
 
     public interface Meta {
         String AD_DTO_TYPE = "adType";

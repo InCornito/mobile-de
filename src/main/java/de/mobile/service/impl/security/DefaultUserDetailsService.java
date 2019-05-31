@@ -1,4 +1,4 @@
-package de.mobile.service.impl;
+package de.mobile.service.impl.security;
 
 import de.mobile.controller.dto.customer.CustomerDto;
 import de.mobile.domain.customer.Customer;

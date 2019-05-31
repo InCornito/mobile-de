@@ -18,7 +18,9 @@ public interface AdMapper {
 
     @Mappings({
             @Mapping(target = "adType", source = "mobileAdDto.adDtoType"),
-            @Mapping(target = "category", source = "mobileAdDto.categoryDto")
+            @Mapping(target = "category", source = "mobileAdDto.categoryDto"),
+            @Mapping(ignore = true, target = "id"),
+            @Mapping(ignore = true, target = "customerEmail")
     })
     Ad toDomain(MobileAdDto mobileAdDto);
 

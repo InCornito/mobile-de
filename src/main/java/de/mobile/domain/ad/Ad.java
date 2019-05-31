@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Data
@@ -30,6 +31,9 @@ public class Ad {
     private String description;
     private Category category;
     private BigDecimal price;
+
+    @NotNull
+    private String customerEmail;
 
     public interface Meta {
         String DOCUMENT_NAME = "ads";
