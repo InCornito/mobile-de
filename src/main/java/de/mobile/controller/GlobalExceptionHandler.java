@@ -2,7 +2,7 @@ package de.mobile.controller;
 
 import de.mobile.controller.error.ErrorCodes;
 import de.mobile.controller.error.MainErrorCode;
-import de.mobile.controller.error.ValidationAnnotationErrorCode;
+import de.mobile.controller.error.ValidationErrorCodes;
 import de.mobile.controller.error.model.ApiError;
 import de.mobile.domain.ad.exception.AdNotFoundException;
 import de.mobile.service.impl.MessageResolver;
@@ -55,7 +55,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     private ApiError createValidationError(ObjectError objectError) {
         MainErrorCode mainErrorCode =
-                ValidationAnnotationErrorCode.findErrorCodeByAnnotationCode(objectError.getCode());
+                ValidationErrorCodes.findErrorCodeByAnnotationName(objectError.getCode());
 
         return Optional.of(objectError)
                 .filter(FieldError.class::isInstance)
