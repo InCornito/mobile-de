@@ -26,7 +26,7 @@ public interface AdMapper {
 
     default AdDto map(Ad ad) {
         if (ad == null) {
-            return null; // TODO
+            return null;
         }
         switch (ad.getAdType()) {
             case MOBILE:
@@ -38,7 +38,7 @@ public interface AdMapper {
 
     default Ad map(AdDto adDto) {
         if (adDto == null) {
-            return null; // TODO
+            return null;
         }
         switch (adDto.getAdDtoType()) {
             case MOBILE:

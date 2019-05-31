@@ -8,9 +8,11 @@ import de.mobile.repository.CustomerRepository;
 import de.mobile.service.CustomerService;
 import de.mobile.service.impl.security.SecurityUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class DefaultCustomerService implements CustomerService {
@@ -21,6 +23,7 @@ public class DefaultCustomerService implements CustomerService {
 
     @Override
     public void register(final CustomerDto customerDto) {
+        log.debug("Register customerDto = [" + customerDto + "]");
         Customer customer = inbound(customerDto);
         customer.setPassword(bCryptPasswordEncoder.encode(customer.getPassword()));
         customer.setCustomerRole(CustomerRole.USER);
@@ -29,8 +32,10 @@ public class DefaultCustomerService implements CustomerService {
 
     @Override
     public void deleteCustomer(final String id) {
+        log.debug("Attempt to delete customer with id = [" + id + "]");
         Customer customer = customerRepository.findById(id);
         if (customer == null || !SecurityUtils.getUserId().equals(customer.getEmail())) {
+            log.info("Customer with id = [" + id + "] not found");
             return;
         }
         customerRepository.delete(id);

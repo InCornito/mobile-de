@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "e47971f6-798e-41ed-ba36-bc4d4df4fdbf",
+		"name": "backend-coding-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ads",
+			"item": [
+				{
+					"name": "Get all ads(pageable)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-coding-challenge}}/ads",
+							"host": [
+								"{{backend-coding-challenge}}"
+							],
+							"path": [
+								"ads"
+							]
+						},
+						"description": "Please use page and sort query params respectivelly"
+					},
+					"response": []
+				},
+				{
+					"name": "Get ad by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-coding-challenge}}/ads/1",
+							"host": [
+								"{{backend-coding-challenge}}"
+							],
+							"path": [
+								"ads",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add ad",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"adType\" : \"MOBILE\",\t\n  \"make\" : \"Renault\",\n  \"model\" : \"Megane 3\",\n  \"description\" : \"Renault Megane 3\",\n  \"category\" : \"CAR\",\n  \"price\" : 5.33\n}"
+						},
+						"url": {
+							"raw": "{{backend-coding-challenge}}/ads",
+							"host": [
+								"{{backend-coding-challenge}}"
+							],
+							"path": [
+								"ads"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8b8a1ac3-0640-4912-bfaf-3940ac61572d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3ce2e056-f85c-44c4-8785-8d56bad86c0e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "Register customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\" : \"Sam\",\n\t\"lastName\" : \"Unc1e\",\n\t\"companyName\" : \"test\",\n\t\"customerType\" : \"MOBILE\",\n\t\"email\" : \"test@gmail.com\",\n\t\"password\" : \"P@ssw0rd\"\t\n}"
+						},
+						"url": {
+							"raw": "{{backend-coding-challenge}}/public/register",
+							"host": [
+								"{{backend-coding-challenge}}"
+							],
+							"path": [
+								"public",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2QyQGdtYWlsLmNvbSIsImV4cCI6MTU2MDEzMjg1OX0.q_FwUE7SUfNOQnqJI3ky5JaNTW7HTYORHa9Wee-bRJMeEv-I2EKKWWnaliVFNgmJjpjHKLWmMm4T38ca-lyVzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\" : \"Sam\",\n\t\"lastName\" : \"Unc1e\",\n\t\"companyName\" : \"test\",\n\t\"customerType\" : \"MOBILE\",\n\t\"email\" : \"asd@gmail.com\",\n\t\"password\" : \"P@ssw0rd\"\t\n}"
+						},
+						"url": {
+							"raw": "{{backend-coding-challenge}}/customers/5cf12256f60dec2ec82401bb",
+							"host": [
+								"{{backend-coding-challenge}}"
+							],
+							"path": [
+								"customers",
+								"5cf12256f60dec2ec82401bb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"asd2@gmail.com\",\r\n    \"password\": \"P@ssw0rd\"\r\n}"
+						},
+						"url": {
+							"raw": "{{backend-coding-challenge}}/login",
+							"host": [
+								"{{backend-coding-challenge}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

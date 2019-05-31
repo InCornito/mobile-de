@@ -26,4 +26,8 @@ Spring Boot application that implements a REST service for manipulating ads and 
 11. If the dealer data and the customer data were not accessible from the database but from other RESTful services, what approach would you use to integrate these services?
 * I would split functionality to user microservice and ad microservice, add gateway, auth microservices, store data in separate DBs, use k8s for deployment, scaling, and management of containerized applications.
 12. If you decide not to write tests for your work for reasons of timeboxing, please spend a few minutes to describe what parts of the application you would write tests for, and what aspects these tests would cover, and what role they play in the development process.
-* Common tests are included
+* Common tests are included. Controller/Field Validations/Mapper tests are missed and should be added later.
+
+Additional info:
+App uses internationalization(en, de)
+Mongo version control added
