@@ -1,5 +1,39 @@
 Spring Boot application that implements a REST service for manipulating ads and customers. 
 
+## Get Started
+
+Prerequisites for the development:
+
+- Java 11
+- Git client
+- MongoDB server running locally on 27017 port
+
+In order to start with a project you should clone it
+
+```
+git clone git@github.com:InCornito/mobile-de.git
+```
+
+Now go inside and do a usual:
+
+```
+cd backend-coding-challenge
+./mvnw clean verify
+OR for Windows use
+mvnw clean verify
+```
+
+## Run Locally
+
+You do this as you typically do for spring boot:
+
+```
+./mvnw spring-boot:run
+OR for Windows use
+mvnw clean spring-boot:run
+```
+
+
 1. The classes in this artifact are all in one package called "de.mobile". Create a proper package structure and move the classes to where they belong.
 * Proper package structure created
 2. Make the domain objects "MobileAd" and "MobileCustomer" persist, either on a local mysqld or a local mongodb.
@@ -31,3 +65,4 @@ Spring Boot application that implements a REST service for manipulating ads and 
 Additional info:
 App uses internationalization(en, de)
 Mongo version control added
+Maven wrapper plugin
